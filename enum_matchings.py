@@ -173,4 +173,4 @@ matchings_large = enumerate_matchings(A, vs)
 #print(matchings)
 
 with open("./large_matchings.json",'w') as wf:
-    json.dump({x:matchings_small[x] for x in range(len(matchings_large))}, wf)
+    json.dump({x:matchings_large[x] for x in range(len(matchings_large))}, wf)
