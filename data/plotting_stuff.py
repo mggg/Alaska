@@ -27,8 +27,12 @@ plt.boxplot(votes,whis=[1,99],showfliers=False, patch_artist=True,
                 )
 
 plt.plot(range(1,41),votes[0,:],'o',color='red',label='Current Plan')
-
+plt.plot([.5,41],[.5,.5],color='green',label="50%")
+plt.xlabel("Indexed Districts")
+plt.ylabel("Dem %")
+plt.legend()
 plt.show()
+
 
 
 
