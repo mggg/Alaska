@@ -98,7 +98,7 @@ def enumerate_matchings(A, vs, d=0):
                 matchings += [[current] + x for x in r]
 
     return [forced + x for x in matchings]
-
+"""
 A= np.array([[0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 [1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 [0,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -174,3 +174,5 @@ matchings_large = enumerate_matchings(A, vs)
 
 with open("./large_matchings.json",'w') as wf:
     json.dump({x:matchings_large[x] for x in range(len(matchings_large))}, wf)
+    
+"""
