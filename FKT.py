@@ -86,94 +86,88 @@ def FKT(A):
     n = len(A)
     B_graph = A[:]
 
- 
     G = nx.Graph(A)
-    
-    
+
     tf, embd = nx.check_planarity(G)
 
-    faces = find_faces(embd)   
-    
+    faces = find_faces(embd)
+
     T1 = nx.minimum_spanning_tree(G)
-    T1 = nx.Graph(T1)  
-    
-    
-    mask = np.random.randint(2,size=(n,n))
+    T1 = nx.Graph(T1)
+
+    mask = np.random.randint(2, size=(n, n))
     mask = ((mask + mask.T) == 1)
-    
+
     B_digraph = A * mask
-    
-    G = nx.DiGraph(B_digraph)    
-    
+
+    G = nx.DiGraph(B_digraph)
+
     edgesT1 = T1.edges();
-    adj_T1 = (nx.adjacency_matrix(T1)).todense();    
-    
+    adj_T1 = (nx.adjacency_matrix(T1)).todense();
+
     for edge in edgesT1:
-        if (B_digraph[edge[0],edge[1]] == 0):
-            adj_T1[edge[0],edge[1]] = 0
+        if (B_digraph[edge[0], edge[1]] == 0):
+            adj_T1[edge[0], edge[1]] = 0
         else:
-            adj_T1[edge[1],edge[0]] = 0    
-            
+            adj_T1[edge[1], edge[0]] = 0
+
     T1 = nx.DiGraph(adj_T1)
-    edgesT1 = list(T1.edges()) 
-    
-    
-    
-    faces.sort(key=len)
-    faces.reverse()
-    faces.pop(0)    
-    
-    
-    while (len(faces) > 0):
-        index = -1;
-        for face in faces:
-            countMissingEdges = 0; 
-            missingEdge = 0;
-            index += 1;
-            for edge in face:
-                try:
-                    idx1 = edgesT1.index(edge);
-                except ValueError:
+    edgesT1 = list(T1.edges())
+    if embd is not None:
+        faces.sort(key=len)
+        faces.reverse()
+        faces.pop(0)
+        
+    if embd is not None:
+        while (len(faces) > 0):
+            index = -1;
+            for face in faces:
+                countMissingEdges = 0;
+                missingEdge = 0;
+                index += 1;
+                for edge in face:
                     try:
-                        idx2 = edgesT1.index((edge[1],edge[0]));
+                        idx1 = edgesT1.index(edge);
                     except ValueError:
-                        countMissingEdges += 1;
-                        missingEdge = edge;
+                        try:
+                            idx2 = edgesT1.index((edge[1], edge[0]));
+                        except ValueError:
+                            countMissingEdges += 1;
+                            missingEdge = edge;
+                        else:
+                            doNothing();
                     else:
                         doNothing();
-                else:
-                    doNothing();    
-    
-            if (countMissingEdges == 1):
-    # in this face, only one edge is missing.        
-    # Place the missing edge such that the total number
-    # of clockwise edges of this face is odd
-    # add this edge to the spanning tree
-                if ((numberOfClockwiseEdges(face,edgesT1))%2 == 1):
-     # insert counterclockwise in adj_T1;
-                    if (isClockwise(missingEdge,face) == False):
-                        adj_T1[missingEdge[0],missingEdge[1]] = 1;
+
+                if (countMissingEdges == 1):
+                # in this face, only one edge is missing.
+                # Place the missing edge such that the total number
+                # of clockwise edges of this face is odd
+                # add this edge to the spanning tree
+                    if ((numberOfClockwiseEdges(face, edgesT1)) % 2 == 1):
+                    # insert counterclockwise in adj_T1;
+                        if (isClockwise(missingEdge, face) == False):
+                            adj_T1[missingEdge[0], missingEdge[1]] = 1;
+                        else:
+                            adj_T1[missingEdge[1], missingEdge[0]] = 1;
                     else:
-                        adj_T1[missingEdge[1],missingEdge[0]] = 1;
-                else:
-     # insert clockwise in adj_T1
-                    if (isClockwise(missingEdge,face) == True):
-                        adj_T1[missingEdge[0],missingEdge[1]] = 1;
-                    else:
-                        adj_T1[missingEdge[1],missingEdge[0]] = 1;
-                             
-    # rebuild the graph
-                T1 = nx.DiGraph(adj_T1);
-                edgesT1 = list(T1.edges());
-                             
-    # remove the face that was found
-                faceFound = faces.pop(index);
-                break;
- 
-    return math.sqrt(np.linalg.det(toSkewSymmetricMatrix(adj_T1)));
-    
-    
-    
+                    # insert clockwise in adj_T1
+                        if (isClockwise(missingEdge, face) == True):
+                            adj_T1[missingEdge[0], missingEdge[1]] = 1;
+                        else:
+                            adj_T1[missingEdge[1], missingEdge[0]] = 1;
+
+                # rebuild the graph
+                    T1 = nx.DiGraph(adj_T1);
+                    edgesT1 = list(T1.edges());
+
+                # remove the face that was found
+                    faceFound = faces.pop(index);
+                    break;
+        try: 
+            return math.sqrt(np.linalg.det(toSkewSymmetricMatrix(adj_T1)));
+        except ValueError: 
+            pass    
     
     
     
