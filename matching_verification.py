@@ -405,7 +405,7 @@ for z in range(3):
         
         
         
-    with open("./Outputs/"+types[z]+"_stats.json",'w') as wf:
+    with open("./Outputs/Matchings_"+types[z]+"_stats.json",'w') as wf:
         json.dump({0:wins1,1:percents1,2:wins2,3:percents2,4:wins3,5:percents3,
                    6:wins4,7:percents4,8:wins5,9:percents5}, wf)
     
@@ -509,7 +509,8 @@ for z in range(3):
     
     
     
- 
+    cis=[] 
+    ces=[]
     for y in range(4):
         votes = partisan_p[y]
         comp = []
@@ -527,6 +528,9 @@ for z in range(3):
             if .4 < x <.6:
                 c_init += 1
                 
+                
+        cis.append(c_init)
+                
         
         sns.distplot(comp,kde=False,color='slateblue',bins=[x for x in range(6,16)],
                                                         hist_kws={"rwidth":1,"align":"left"})
@@ -536,10 +540,29 @@ for z in range(3):
         plt.legend()
         plt.savefig("./Outputs/plots/Match_Comp_"+ types[z] + p_types[y] + ".png")
         plt.close()
+        
+        
+        ces.append(np.mean(comp))
+        
+        
 
-    
+    with open("./Outputs/values/Matchings_Comp" + types[z] + ".txt", "w") as f:
+        f.write("Matching Values for Graph: "+types[z]+" \n\n")
+
+        for y in range(4):
+        
+        
+            f.write("Enacted Comp : "+ p_types[y] + ": "+ str(cis[y]))
+            f.write("\n")
+            f.write("Matching Average Comp : "+ p_types[y] + ": "+ str(ces[y]))
+            f.write("\n")
+            f.write("\n") 
+            
+            
+            
     votes = percents5
     comp = []
+
     
     for i in range(len(votes)):
         temp = 0
@@ -558,6 +581,8 @@ for z in range(3):
     plt.close()
     
     print("Finished ",types[z]," Competitive plots")
+    
+
 
     
 print("All matchings reproduced in :", time.time()- whole_start, " seconds")    
@@ -751,7 +776,8 @@ for z in range(3):
     
     
     
- 
+    cis=[]
+    ces=[]
     for y in range(4):
         votes = partisan_p[y]
         comp = []
@@ -769,8 +795,10 @@ for z in range(3):
             if .4 < x <.6:
                 c_init += 1
                 
+        cis.append(c_init)
+                
         
-        sns.distplot(comp,kde=False,color='slateblue',bins=[x for x in range(10,30)],
+        sns.distplot(comp,kde=False,color='slateblue',bins=[x for x in range(15,30)],
                                                         hist_kws={"rwidth":1,"align":"left"})
         plt.axvline(x=c_init,color='r',label="Current Plan",linewidth=5)
         plt.axvline(x=np.mean(comp),color='g',label="Matchings Mean",linewidth=5)
@@ -778,8 +806,21 @@ for z in range(3):
         plt.legend()
         plt.savefig("./Outputs/plots/Ensemble_Comp_"+ types[z] + p_types[y] + ".png")
         plt.close()
+        
+        ces.append(np.mean(comp))
 
-    
+
+    with open("./Outputs/values/Ensemble_Comp" + types[z] + ".txt", "w") as f:
+        f.write("Ensemble Values for Graph: "+types[z]+" \n\n")
+
+        for y in range(4):
+        
+        
+            f.write("Enacted Comp : "+ p_types[y] + ": "+ str(cis[y]))
+            f.write("\n")
+            f.write("Ensemble Average Comp : "+ p_types[y] + ": "+ str(ces[y]))
+            f.write("\n")
+            f.write("\n")    
     votes = percents5
     comp = []
     
@@ -800,6 +841,17 @@ for z in range(3):
     plt.close()
     
     print("Finished ",types[z]," Competitive plots")
+    
+    plt.figure()
+    plt.plot(num_edges,num_matchings,'o',markersize=1)
+    plt.savefig("./Outputs/plots/Ensemble_Comp_"+ types[z] + "edges.png")
+    
+    
+    
+    with open("./Outputs/Ensemble_"+types[z]+"_stats.json",'w') as wf:
+        json.dump({0:wins1,1:percents1,2:wins2,3:percents2,4:wins3,5:percents3,
+                   6:wins4,7:percents4,8:wins5,9:percents5,10:num_edges,11:num_matchings}, wf)
+
     
     
 print("All chains run in: ", time.time()-ensemble_time, " seconds.")
