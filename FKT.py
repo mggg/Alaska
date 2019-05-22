@@ -26,6 +26,7 @@ def doNothing():
     return 0;
 
 def find_faces(embd):
+    
 
     #Returns a list of faces of the planar embedding by 
     #the edges that bound the face
@@ -89,6 +90,9 @@ def FKT(A):
     G = nx.Graph(A)
 
     tf, embd = nx.check_planarity(G)
+    
+    if embd is None:
+        return 0
 
     faces = find_faces(embd)
 

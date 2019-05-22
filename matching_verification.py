@@ -765,6 +765,11 @@ for z in range(3):
     plt.close()
     
     print("Finished ",types[z]," Competitive plots")
+    
+    
+print("All chains run in: ", time.time()-ensemble_time, " seconds.")
+print("Full replication complete in: ", time.time()-whole_start, " seconds.")
+
 
         
 
