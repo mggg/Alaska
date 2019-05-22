@@ -499,6 +499,7 @@ for z in range(3):
             
             
             f.write("Enacted Wins : "+ p_types[y] + ": "+ str(sum([val>.5 for val in p_vecs[y]])))
+            f.write("\n")
             f.write("Matching Average Wins : "+ p_types[y] + ": "+ str(np.mean(partisan_w[y])))
             f.write("\n")
             f.write("\n")
@@ -742,6 +743,7 @@ for z in range(3):
         
         
             f.write("Enacted Wins : "+ p_types[y] + ": "+ str(sum([val>.5 for val in p_vecs[y]])))
+            f.write("\n")
             f.write("Ensemble Average Wins : "+ p_types[y] + ": "+ str(np.mean(partisan_w[y])))
             f.write("\n")
             f.write("\n")
