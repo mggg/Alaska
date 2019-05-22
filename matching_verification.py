@@ -492,6 +492,18 @@ for z in range(3):
     plt.close()
     
     
+    with open("./Outputs/values/Matchings_" + types[z] + ".txt", "w") as f:
+        f.write("Matching Values for Graph: "+types[z]+" \n\n")
+    
+        for y in range(4):
+            
+            
+            f.write("Enacted Wins : "+ p_types[y] + ": "+ str(sum([val>.5 for val in p_vecs[y]])))
+            f.write("Matching Average Wins : "+ p_types[y] + ": "+ str(np.mean(partisan_w[y])))
+            f.write("\n")
+            f.write("\n")
+    
+    
     print("Finished ",types[z]," Seats plots")
     
     
@@ -720,6 +732,20 @@ for z in range(3):
     
     
     print("Finished ",types[z]," Seats plots")
+    
+    
+    
+    with open("./Outputs/values/Ensemble_" + types[z] + ".txt", "w") as f:
+        f.write("Ensemble Values for Graph: "+types[z]+" \n\n")
+
+        for y in range(4):
+        
+        
+            f.write("Enacted Wins : "+ p_types[y] + ": "+ str(sum([val>.5 for val in p_vecs[y]])))
+            f.write("Ensemble Average Wins : "+ p_types[y] + ": "+ str(np.mean(partisan_w[y])))
+            f.write("\n")
+            f.write("\n")
+
     
     
     
