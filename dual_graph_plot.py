@@ -104,6 +104,42 @@ for state in states:
     plt.savefig(f"./Outputs/plots/{state}_planar4.png")
     plt.close()
     
+    plt.figure()
+    nx.draw_planar(g,node_size=600,edge_color='slateblue',alpha =.5, width=1,with_labels=True,font_color='k',node_color=['w' for x in g.nodes()],
+    labels={x:remove_o(df["SLDLST"][x]) for x in g.nodes()})
+    #plt.show()
+    #fig=plt.gcf()
+    #fig.set_size_inches(12,4)
+    plt.savefig(f"./Outputs/plots/{state}_planar5.png")
+    plt.close()
+    
+    plt.figure()
+    nx.draw_spectral(g,node_size=600,edge_color='slateblue',alpha =.5, width=1,with_labels=True,font_color='k',node_color=['w' for x in g.nodes()],
+    labels={x:remove_o(df["SLDLST"][x]) for x in g.nodes()})
+    #plt.show()
+    #fig=plt.gcf()
+    #fig.set_size_inches(12,4)
+    plt.savefig(f"./Outputs/plots/{state}_planar6.png")
+    plt.close()
+    
+    plt.figure()
+    nx.draw_spring(g,node_size=600,edge_color='slateblue',alpha =.5, width=1,with_labels=True,font_color='k',node_color=['w' for x in g.nodes()],
+    labels={x:remove_o(df["SLDLST"][x]) for x in g.nodes()})
+    #plt.show()
+    #fig=plt.gcf()
+    #fig.set_size_inches(12,4)
+    plt.savefig(f"./Outputs/plots/{state}_planar7.png")
+    plt.close()
+    
+    plt.figure()
+    nx.draw_shell(g,node_size=600,edge_color='slateblue',alpha =.5, width=1,with_labels=True,font_color='k',node_color=['w' for x in g.nodes()],
+    labels={x:remove_o(df["SLDLST"][x]) for x in g.nodes()})
+    #plt.show()
+    #fig=plt.gcf()
+    #fig.set_size_inches(12,4)
+    plt.savefig(f"./Outputs/plots/{state}_planar8.png")
+    plt.close()
+    
         
     plt.figure()
     df.plot(color='black', edgecolor='white')
