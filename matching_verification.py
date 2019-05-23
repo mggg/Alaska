@@ -468,6 +468,7 @@ for z in range(3):
         plt.plot([.5,21],[.5,.5],color='green',label="50%")
         plt.xlabel("Sorted Districts")
         plt.ylabel("Dem %")
+        plt.xticks([1,10,20],['1','10','20'])
         plt.legend()
         
         fig = plt.gcf()
@@ -490,6 +491,8 @@ for z in range(3):
     plt.plot([.5,21],[.5,.5],color='green',label="50%")
     plt.xlabel("Sorted Districts")
     plt.ylabel("Native %")
+    plt.xticks([1,10,20],['1','10','20'])
+
     plt.legend()
     
     fig = plt.gcf()
@@ -727,7 +730,7 @@ for z in range(3):
     ],
     accept=accept.always_accept,
     initial_state=initial_partition,
-    total_steps=10
+    total_steps=100000
         )
 
     print("Started ", types[z], "chain")
@@ -797,6 +800,7 @@ for z in range(3):
         plt.plot([.5,41],[.5,.5],color='green',label="50%")
         plt.xlabel("Sorted Districts")
         plt.ylabel("Dem %")
+        plt.xticks([1,20,40],['1','20','40'])
         plt.legend()
         
         fig = plt.gcf()
@@ -819,6 +823,7 @@ for z in range(3):
     plt.plot([.5,41],[.5,.5],color='green',label="50%")
     plt.xlabel("Sorted Districts")
     plt.ylabel("Native %")
+    plt.xticks([1,20,40],['1','20','40'])
     plt.legend()
     
     fig = plt.gcf()
