@@ -565,7 +565,7 @@ for z in range(3):
         cis.append(c_init)
                 
         
-        sns.distplot(comp,kde=False,color='slateblue',bins=[x for x in range(6,16)],
+        sns.distplot(comp,kde=False,color='slateblue',bins=[x for x in range(6,20)],
                                                         hist_kws={"rwidth":1,"align":"left"})
         plt.axvline(x=c_init,color='r',label="Current Plan",linewidth=5)
         plt.axvline(x=np.mean(comp),color='g',label="Matchings Mean",linewidth=5)
@@ -897,7 +897,7 @@ for z in range(3):
         cis.append(c_init)
                 
         
-        sns.distplot(comp,kde=False,color='slateblue',bins=[x for x in range(15,30)],
+        sns.distplot(comp,kde=False,color='slateblue',bins=[x for x in range(15,35)],
                                                         hist_kws={"rwidth":1,"align":"left"})
         plt.axvline(x=c_init,color='r',label="Current Plan",linewidth=5)
         plt.axvline(x=np.mean(comp),color='g',label="Matchings Mean",linewidth=5)
