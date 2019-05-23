@@ -781,7 +781,7 @@ for z in range(3):
     
     partisan_w = [wins1,wins2,wins3,wins4]
     partisan_p = [percents1,percents2,percents3,percents4]
-    p_types=["GOV18x", "GOV18ns", "USH18x", "USH18ns"]
+    p_types=["GOV18N", "GOV18A", "USH18N", "USH18A"]
     p_vecs=[GOV18x, GOV18ns, USH18x, USH18ns]
     
     for y in range(4):
