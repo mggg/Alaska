@@ -770,7 +770,12 @@ for z in range(3):
         A = nx.adjacency_matrix(new_dg).todense()
         
         num_edges.append(A.sum()/2)
-        num_matchings.append(FKT(A))
+        ans = FKT(A)
+        if ans is not None:
+            num_matchings.append(round(ans))
+        else:
+            num_matchings.append(0)
+            
         
         if t%1000 == 0:
             print(types[z],"chain ",t," steps")
