@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-plt.switch_backend('agg')
 import pandas as pd
 import geopandas as gpd
 import numpy as np
@@ -25,6 +24,8 @@ from functools import partial
 from FKT import FKT
 
 from enum_matchings import enumerate_matchings
+
+from uniform_matching import uniform_matching
 
 whole_start = time.time()
 
@@ -297,49 +298,301 @@ if (A_loose[A_restricted==1]==1).sum() == A_restricted.sum():
 #                print(i,j)
             
             
-def remove_o(name):
-    if name[0] == '0':
-        name = name[1:]
-        
-    return name
-
-plt.figure()
-pos = nx.kamada_kawai_layout(large)
-nx.draw(large,pos=pos,node_size=600,edge_color='slateblue',alpha =.5, width=1,with_labels=True,font_color='k',node_color=['w' for x in large.nodes()])
-    #,labels={x:df["HDIST"][x]+1 for x in large.nodes()})
-
-plt.savefig('AK_loose.png')
-plt.close()
-
-plt.figure()
-nx.draw(small,pos=pos,node_size=600,edge_color='slateblue',alpha =.5, width=1,with_labels=True,font_color='k',node_color=['w' for x in small.nodes()])
-    #,labels={x:df["HDIST"][x]+1 for x in small.nodes()})
-
-plt.savefig('AK_small.png')
-plt.close()
-
-plt.figure()
-nx.draw(smallest,pos=pos,node_size=600,edge_color='slateblue',alpha =.5, width=1,with_labels=True,font_color='k',node_color=['w' for x in smallest.nodes()])
-    #,labels={x:df["HDIST"][x]+1 for x in smallest.nodes()})
-
-plt.savefig('AK_smallest.png')
-plt.close()
 
 
-FKT(np.matrix([[0,1],[1,0]]))
+
+
+
+
+
 #Compute matching numbers
 print("Using FKT to enumerate matchings")
 start = time.time() 
-count_tight = FKT(A_tight)
-print("Tight Matchings: ",count_tight , "in", time.time()-start,"seconds")
+print("Tight Matchings: ", round(FKT(A_tight)), "in", time.time()-start,"seconds")
 
 start = time.time() 
-count_restricted = FKT(A_restricted)
-print("Restricted Matchings: ",count_restricted , "in", time.time()-start,"seconds")
+print("Restricted Matchings: ", round(FKT(A_restricted)), "in", time.time()-start,"seconds")
 
 start = time.time() 
-count_loose = FKT(A_loose)
-print("Permissive Matchings: ", count_loose, "in", time.time()-start,"seconds")
+print("Permissive Matchings: ", round(FKT(A_loose)), "in", time.time()-start,"seconds")
+
+
+
+
+
+
+
+
+
+
+types = ["Tight_Samples","Restricted_Samples","Loose_Samples"]
+#ms = [sample_matchings]
+As = [A_tight,A_restricted,A_loose]
+gs = [G_tight, G_restricted, G_loose]
+for z in range(1,3):
+    
+    matchings = []
+
+    for i in range(100):
+        matchings.append(uniform_matching(nx.Graph(As[z])))
+
+    
+    #matchings = ms[z]
+    G = gs[z]
+
+
+
+    print("Computing Stats on", types[z])
+
+    percents1 = []
+    wins1 = []
+    percents2 = []
+    wins2 = []
+    percents3 = []
+    wins3 = []
+    percents4 = []
+    wins4 = []
+    percents5= []
+    wins5 = []
+    
+    
+    for i in range(len(matchings)):
+        temp= {}
+        for j in range(20):
+            for k in [0,1]:
+                temp[matchings[i][j][k]+1]=j#[matchings[str(i)][j][k]-1]=j
+        df["MERGEDIST"] = df["HDIST"].map(temp)
+        G.join(df,columns= ["MERGEDIST"])
+        c_part = GeographicPartition(G, assignment="MERGEDIST", updaters= my_updaters)
+        wins1.append(c_part["GOV18x"].wins("Democratic"))
+        percents1.append(sorted(c_part["GOV18x"].percents("Democratic")))
+        wins2.append(c_part["GOV18ns"].wins("Democratic"))
+        percents2.append(sorted(c_part["GOV18ns"].percents("Democratic")))
+        wins3.append(c_part["USH18x"].wins("Democratic"))
+        percents3.append(sorted(c_part["USH18x"].percents("Democratic")))
+        wins4.append(c_part["USH18ns"].wins("Democratic"))
+        percents4.append(sorted(c_part["USH18ns"].percents("Democratic")))
+        wins5.append(c_part["Native_percent"].wins("Native"))
+        percents5.append(sorted(c_part["Native_percent"].percents("Native")))
+        
+        
+        
+        
+    with open("./Outputs/Matchings_"+types[z]+"_stats.json",'w') as wf:
+        json.dump({0:wins1,1:percents1,2:wins2,3:percents2,4:wins3,5:percents3,
+                   6:wins4,7:percents4,8:wins5,9:percents5}, wf)
+    
+    print("wrote ",types[z]," stats to file")
+    
+    
+    print("Plotting ", types[z], " figures")
+    
+    
+    partisan_w = [wins1,wins2,wins3,wins4]
+    partisan_p = [percents1,percents2,percents3,percents4]
+    p_types=["GOV18N", "GOV18A", "USH18N", "USH18A"]
+    p_vecs=[GOV18x, GOV18ns, USH18x, USH18ns]
+
+    c='black'
+    
+    for y in range(4):
+        
+    
+        plt.figure()
+        plt.boxplot(np.array(partisan_p[y]),whis=[0,100],showfliers=True, patch_artist=True,
+                        boxprops=dict(facecolor="None", color=c),
+                        capprops=dict(color=c),
+                        whiskerprops=dict(color=c),
+                        flierprops=dict(color=c, markeredgecolor=c),
+                        medianprops=dict(color=c),
+                        )
+        
+        plt.plot(range(1,21),p_vecs[y],'o',color='red',label='Current Plan')
+        plt.plot([.5,21],[.5,.5],color='green',label="50%")
+        plt.xlabel("Sorted Districts")
+        plt.ylabel("Dem %")
+        plt.xticks([1,10,20],['1','10','20'])
+        plt.legend()
+        
+        fig = plt.gcf()
+        fig.set_size_inches((20,10), forward=False)
+        fig.savefig("./Outputs/plots/Match_Box_"+ types[z] + p_types[y] + ".png")
+        plt.close()
+    
+    
+    
+    plt.figure()
+    plt.boxplot(np.array(percents5),whis=[0,100],showfliers=True, patch_artist=True,
+                    boxprops=dict(facecolor="None", color=c),
+                    capprops=dict(color=c),
+                    whiskerprops=dict(color=c),
+                    flierprops=dict(color=c, markeredgecolor=c),
+                    medianprops=dict(color=c),
+                    )
+    
+    plt.plot(range(1,21),Native,'o',color='red',label='Current Plan')
+    plt.plot([.5,21],[.5,.5],color='green',label="50%")
+    plt.xlabel("Sorted Districts")
+    plt.ylabel("Native %")
+    plt.xticks([1,10,20],['1','10','20'])
+
+    plt.legend()
+    
+    fig = plt.gcf()
+    fig.set_size_inches((20,10), forward=False)
+    fig.savefig("./Outputs/plots/Match_Box_"+ types[z] +"Native.png")
+    plt.close()
+    
+    print("Finished ",types[z]," Box plots")
+    
+    for y in range(4):
+        plt.figure()
+        sns.distplot(partisan_w[y],kde=False,color='slateblue',bins=[x for x in range(4,13)],
+                                                        hist_kws={"rwidth":1,"align":"left"})
+        plt.axvline(x=sum([val>.5 for val in p_vecs[y]]),color='r',label="Current Plan",linewidth=5)
+        plt.axvline(x=np.mean(partisan_w[y]),color='g',label="Matchings Mean",linewidth=5)
+        plt.legend()
+        print(p_types[y],"wins: ", np.mean(partisan_w[y]))
+        plt.savefig("./Outputs/plots/Match_Hist_"+ types[z] + p_types[y] + ".png")
+        plt.close()
+        
+        
+    plt.figure()
+    sns.distplot(wins5,kde=False,color='slateblue',bins=[x for x in range(5)],
+                                                    hist_kws={"rwidth":1,"align":"left"})
+    plt.axvline(x=2,color='r',label="Current Plan",linewidth=5)
+    plt.axvline(x=np.mean(wins5),color='g',label="Matchigs Mean",linewidth=5)
+    plt.legend()
+    print("Native wins: ", np.mean(wins5))
+    plt.savefig("./Outputs/plots/Match_Hist_"+ types[z] + "Native.png")
+    plt.close()
+    
+    
+    with open("./Outputs/values/Matchings_" + types[z] + ".txt", "w") as f:
+        f.write("Matching Values for Graph: "+types[z]+" \n\n")
+    
+        for y in range(4):
+            
+            
+            f.write("Enacted Wins : "+ p_types[y] + ": "+ str(sum([val>.5 for val in p_vecs[y]])))
+            f.write("\n")
+            f.write("Matching Average Wins : "+ p_types[y] + ": "+ str(np.mean(partisan_w[y])))
+            f.write("\n")
+            f.write("\n")
+    
+    
+    print("Finished ",types[z]," Seats plots")
+    
+    
+    
+    cis=[] 
+    ces=[]
+    for y in range(4):
+        votes = partisan_p[y]
+        comp = []
+        
+        for i in range(len(votes)):
+            temp = 0
+            for j in votes[i]:
+                if .4 < j < .6:
+                    temp+=1
+            comp.append(temp)
+        
+        c_init = 0
+        
+        for x in p_vecs[y]:
+            if .4 < x <.6:
+                c_init += 1
+                
+                
+        cis.append(c_init)
+                
+        
+        sns.distplot(comp,kde=False,color='slateblue',bins=[x for x in range(6,20)],
+                                                        hist_kws={"rwidth":1,"align":"left"})
+        plt.axvline(x=c_init,color='r',label="Current Plan",linewidth=5)
+        plt.axvline(x=np.mean(comp),color='g',label="Matchings Mean",linewidth=5)
+        print(p_types[y],"competitive: ",np.mean(comp))
+        plt.legend()
+        plt.savefig("./Outputs/plots/Match_Comp_"+ types[z] + p_types[y] + ".png")
+        plt.close()
+        
+        
+        ces.append(np.mean(comp))
+        
+        
+
+    with open("./Outputs/values/Matchings_Comp" + types[z] + ".txt", "w") as f:
+        f.write("Matching Values for Graph: "+types[z]+" \n\n")
+
+        for y in range(4):
+        
+        
+            f.write("Enacted Comp : "+ p_types[y] + ": "+ str(cis[y]))
+            f.write("\n")
+            f.write("Matching Average Comp : "+ p_types[y] + ": "+ str(ces[y]))
+            f.write("\n")
+            f.write("\n") 
+            
+            
+            
+    votes = percents5
+    comp = []
+
+    
+    for i in range(len(votes)):
+        temp = 0
+        for j in votes[i]:
+            if .4 < j < .6:
+                temp+=1
+        comp.append(temp)
+    
+    sns.distplot(comp,kde=False,color='slateblue',bins=[x for x in range(6)],
+                                                    hist_kws={"rwidth":1,"align":"left"})
+    plt.axvline(x=0,color='r',label="Current Plan",linewidth=5)
+    plt.axvline(x=np.mean(comp),color='g',label="Matchings Mean",linewidth=5)
+    print("Native competitive: ", np.mean(comp))
+    plt.legend()
+    plt.savefig("./Outputs/plots/Match_Comp_"+ types[z] + "Native.png")
+    plt.close()
+    
+    print("Finished ",types[z]," Competitive plots")
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+avdsdv
+
+
+
+
+
+
+
+
+
+
+
 
 
 #List all pairings
@@ -414,8 +667,7 @@ for x in matchings_large[0]:
 
 if check == 20:
     print("All permissive matchings are allowed!")
- 
-#blahblahblah   
+    
 #Compute stats on matchings
     
 types = ["Tight","Restricted","Permissive"]
@@ -644,7 +896,7 @@ for z in range(3):
     print("Finished ",types[z]," Competitive plots")
     
 
-#vDVDS
+
     
 print("All matchings reproduced in :", time.time()- whole_start, " seconds")    
 
@@ -779,25 +1031,6 @@ for z in range(3):
     wins5 = []
     percents5 = []
     
-    maxe = 10
-    mine = 11111110
-    maxm = 10
-    minm = 11111110
-
-    maxea = {}
-    minea = {}
-    maxma = {}
-    minma = {}
-    maxeA = []
-    mineA = []
-    maxmA = []
-    minmA = []    
-    maxen = 0
-    minen = 0
-    maxmn = 0
-    minmn = 0
-
-
     t=0
     for c_part in chain:
         
@@ -822,55 +1055,13 @@ for z in range(3):
             num_matchings.append(round(ans))
         else:
             num_matchings.append(0)
-
-        if ans is None:
-            ans = 0
-
-
-        if A.sum()/2 > maxe:
-            maxea = dict(c_part.assignment)
-            maxeA = A[:]
-            maxen = t
-            maxe = A.sum()/2
-
-        if (A.sum()/2) < mine:
-            minea = dict(c_part.assignment)
-            mineA = A[:]
-            minen = t
-            mine = A.sum()/2
-
-        if round(ans) > maxm:
-            maxma = dict(c_part.assignment)
-            maxmA = A[:]
-            maxmn = t
-            maxm = round(ans)
-
             
-        if round(ans) < minm  and round(ans) !=0:
-            minma = dict(c_part.assignment)
-            minmA = A[:]
-            minmn = t
-            minm = round(ans)
-
-        if round(ans) == 0:
-            zerom = dict(c_part.assignment)
-            zeroA = A[:]
-            zerot = t
-            zeroe = A.sum()/2
-
-
         
         if t%1000 == 0:
             print(types[z],"chain ",t," steps")
         t+=1
         
     print("Finished ", types[z], " Ensemble")
-
-    with open("./Outputs/Ensemble_"+types[z]+"_extremes.json",'w') as wf:
-        json.dump({0:maxea,1:maxeA.tolist(),2:maxen,3:maxe,4:minea,5:mineA.tolist(),6:minen,7:mine,
-8:maxma,9:maxmA.tolist(),10:maxmn,11:maxm,12:minma,13:minmA.tolist(),14:minmn,15:minm,16:zerom,
-17:zeroA.tolist(),18:zerot,19:zeroe}, wf)
-
     
     
     partisan_w = [wins1,wins2,wins3,wins4]
