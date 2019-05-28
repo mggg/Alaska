@@ -40,7 +40,8 @@ The replication code does the following:
   <li><b>Preprocessing</b> contains code for downloading the state level shapefiles and extracting the corresponding dual graphs as .csvs. </li>
   <li> <b> Summer Code</b> contains more exploratory code an earlier versions of the main functions. </li>
   <li> <b>data</b> contains the adjacency matrices for the dual graphs and .json files for the complete matchings of the Permissive and Restricted plans. The main precinct level shapefile for Alaska is included as AK_precicnts_NS.zip. </li>
-  <li><b>shapefiles</b> contains the state level shapefiles. 
+ <li><b>shapefiles</b> contains the state level shapefiles. </li>
+ <li><b>Tests</b> contains testing examples for the various python functions and plotting code for nearly planar embeddings like those in the paper.</li>
   
   </ul>
   
