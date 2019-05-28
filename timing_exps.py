@@ -14,6 +14,10 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
+from enum_matchings import enumerate_matchings
+
+
+
 
 start_time = time.time()
 
@@ -87,15 +91,16 @@ print(time.time()-start_time)
 #State Examples
 states = [
         "Alaska",
+                "Nevada",
+                        "Wyoming",
+
         "Iowa",
         "Montana",
         #"Ohio",
         #"Wisconsin",
         "Illinois",
         "Minnesota",
-        "Nevada",
         "Oregon",
-        "Wyoming",
     ]
 
 
@@ -111,18 +116,19 @@ for state in states:
     #ex = m#.applyfunc(lambda x:N(x, 100))
     #print(ex.det())
     #math.sqrt(np.linalg.det(FKT(Adj)))
+    start_time = time.time()
     ans = round(FKT(Adj))
     #np.savetxt(f"./graphs/skew_{state}.csv",ans , fmt="%1i")
-    print(ans)
+    print(ans,time.time()-start_time)
     #ans= math.sqrt(np.linalg.det(ans))
     print(state)
    
-    plt.figure()
+    #plt.figure()
    
-    g= nx.Graph(np.matrix(Adj))
-    nx.draw_kamada_kawai(g,node_size=800,node_color=['w' for x in g.nodes()],width=4)
-    pos =nx.kamada_kawai_layout(g)
-    nx.draw_networkx_labels(g,pos,font_color='blue',font_size=20)
+    #g= nx.Graph(np.matrix(Adj))
+    #nx.draw_kamada_kawai(g,node_size=800,node_color=['w' for x in g.nodes()],width=4)
+    #pos =nx.kamada_kawai_layout(g)
+    #nx.draw_networkx_labels(g,pos,font_color='blue',font_size=20)
     
     
     
@@ -133,14 +139,16 @@ for state in states:
    
 
 
-    print(time.time()-start_time)
+    #print(time.time()-start_time)
     
     
-    start_time = time.time()
+    #start_time = time.time()
 
-    m = uniform_matching(g)
-    print(time.time()-start_time, " seconds for a uniform matching")
-    
+    #m = uniform_matching(g)
+    #vs = list(range(1,len(g.nodes())+1))
+    #m= enumerate_matchings(np.array(nx.adjacency_matrix(g).todense()),vs)
+    #print("\n",time.time()-start_time, " seconds for a uniform matching")
+    #print(state,len(m))
     
 
 aknncs
@@ -151,12 +159,14 @@ Alaska
 '108765'
 Alaska
 0.03989243507385254
+8.201021909713745  seconds for a uniform matching
 
 Iowa
 1494354140510.9883
 '1494354140511'
 Iowa
 0.3131136894226074
+340.17737889289856  seconds for a uniform matching
 
 Montana
 11629786967358.035
