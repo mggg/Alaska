@@ -40,7 +40,8 @@ The replication code does the following:
   <li><b>Preprocessing</b> contains code for downloading the state level shapefiles and extracting the corresponding dual graphs as .csvs. </li>
   <li> <b> Summer Code</b> contains more exploratory code an earlier versions of the main functions. </li>
   <li> <b>data</b> contains the adjacency matrices for the dual graphs and .json files for the complete matchings of the Permissive and Restricted plans. The main precinct level shapefile for Alaska is included as AK_precicnts_NS.zip. </li>
-  <li><b>shapefiles</b> contains the state level shapefiles. 
+ <li><b>shapefiles</b> contains the state level shapefiles. </li>
+ <li><b>Tests</b> contains testing examples for the various python functions and plotting code for nearly planar embeddings like those in the paper.</li>
   
   </ul>
   
@@ -48,7 +49,7 @@ The replication code does the following:
   <H2>Python Functions</H2>
   <ul>
  <li><b>FKT.py</b> provides a function named FKT that enumerates all of the perfect matchings in a given planar graph. It takes as input a numpy matrix representing the adjacencies. This can be extracted from a networkx graph object as nx.adjacency_matrix(G).todense() and the program can be called with round(FKT(nx.adjacency_matrix(G).todense())) </li>
- <li><b>enum_matchings.py</b> provides a function names enumerate_matchings that generates a list off all of the perfect matchings of a planar graph. It takes an input a numpy array of the graph adjacencies and can be called with enumerate_matchigs(np.array(FKT(nx.adjacency_matrix(G).tolist()))). </li>
+ <li><b>enum_matchings.py</b> provides a function names enumerate_matchings that generates a list off all of the perfect matchings of a planar graph. It takes an input a numpy array of the graph adjacencies and can be called with enumerate_matchigs(np.array(FKT(nx.adjacency_matrix(G).tolist(),list(range(len(G.nodes())))). </li>
  <li><b>uniform_matching.py</b> provides a function uniform matching that takes as input a networkx graph object and returns a uniformly sampled perfect matching. </li>
  <li> The remainder of the python files perform tests and plotting features. </li>
 
