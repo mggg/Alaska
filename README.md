@@ -28,6 +28,9 @@ The replication code does the following:
  <li>     For these 100k steps runs it takes about 3 hours to do everything (shortens to 1/2 an hour if you only do 10k steps). </li>
    
   </ol>
+  
+  
+ 
 <H2> Subdirectories </H2>
 
 <ul>
@@ -40,6 +43,14 @@ The replication code does the following:
   <li><b>shapefiles</b> contains the state level shapefiles. 
   
   </ul>
+  
+  
+  <H2>Python Functions</H2>
+  <ul>
+ <li><b>FKT.py</b> provides a function named FKT that enumerates all of the perfect matchings in a given planar graph. It takes as input a numpy matrix representing the adjacencies. This can be extracted from a networkx graph object as nx.adjacency_matrix(G).todense() and the program can be called with round(FKT(nx.adjacency_matrix(G).todense())) </li>
+ <li><b>enum_matchings.py</b> provides a function names enumerate_matchings that generates a list off all of the perfect matchings of a planar graph. It takes an input a numpy array of the graph adjacencies and can be called with enumerate_matchigs(np.array(FKT(nx.adjacency_matrix(G).tolist()))). </li>
+ <li><b>uniform_matching.py</b> provides a function uniform matching that takes as input a networkx graph object and returns a uniformly sampled perfect matching. </li>
+ <li> The remainder of the python files perform tests and plotting features. </li>
 
 <!--
 enum_matchings.py - Most recently updated enum_mathcing file that takes in multiple adjacency matrices of a potential districting plans from chain and outputs the number of matchings in each plan. Creates .pkl file. 
