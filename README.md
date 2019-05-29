@@ -1,6 +1,6 @@
 # Alaska
 
-This repository contains replication code, data, and additional material to accompany the paper <a href="https://mggg.org/Alaska">Mathematics of Nested Districts: The Case of Alaska</a> which grew out of a project started by the 2018 Voting Rights Data Institute. 
+This repository contains replication code, data, and additional material to accompany the paper <a href="https://mggg.org/Alaska">Mathematics of Nested Districts: The Case of Alaska</a> which grew out of a project started by the 2018 <a href="http://gerrydata.org/">Voting Rights Data Institute</a> organized by <a href="mggg.org">MGGG</a>. 
 
 <H2> Pairing Districts</H2>
 
@@ -21,7 +21,12 @@ This paper analyzes a pairing rule that eight states require of their state legi
 
 Our techincal contributions include an implementation of the FKT algorithm for counting the number of perfect matchings in a planar graph, a prune-and-split algorithm for generating the matchings, and a uniform sampling implementation for analyzing states like Minnesota, where generating the full set of matchings would be prohibitively expensive. The FKT function is fast enough to incorporate at every step of the Markov chain sampling procedure for generating new House plans and forms the backbone of the uniform sampling algorithm. These techniques also allow us to investigate the relationship between the number of edges in the dual graph and the number of matchings, which is of independent mathematical interest. 
 
-For Alaska, we show that compared to the full collection of possible matchings of the currently enacted plan the chosen pairing exhibits an approximate advantage of 1 Republican seat. Interestingly, the House districting plan appears to have a similar magnitude advantage for the Democratic party compared to a neutral ensemble formed with a Markov chain. We also verify the usefulness of our sampling techinque by comparing it to the ground truth available in Alaska and examine the extremal plans found in the Markov chain ensemble.  Finally, we provide a cleaned dataset of merged geographic and partisan data and describe the choices that must be made to compile these resources. 
+For Alaska, we show that compared to the full collection of possible matchings of the currently enacted plan the chosen pairing exhibits an approximate advantage of 1 Republican seat. Interestingly, the House districting plan appears to have a similar magnitude advantage for the Democratic party compared to a neutral ensemble formed with a Markov chain. Histograms of these results are shown below. We also verify the usefulness of our sampling techinque by comparing it to the ground truth available in Alaska and examine the extremal plans found in the Markov chain ensemble.  Finally, we provide a cleaned dataset of merged geographic and partisan data and describe the choices that must be made to compile these resources. 
+
+<table>
+ <tr><td># Democratic Senate Seats across all perfect matchings</td><td># Democratic House Seats across 100k alternative plans</td></tr>
+ <tr><td>![USH18A](https://github.com/gerrymandr/Alaska/blob/master/GerryChain/Match_Hist_PermissiveUSH18A.png)</td><td> ![USH18A](https://github.com/gerrymandr/Alaska/blob/master/GerryChain/New_Ensemble_Hist_USH18A.png)</td></tr>
+ </table>
 
 
 <H2> Replication </H2>
