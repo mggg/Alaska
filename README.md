@@ -4,7 +4,7 @@ This repository contains replication code, data, and additional material to acco
 
 <table>
  <tr><td>Alaska State House Districts</td><td>Alaska State Senate Districts</td></tr>
- <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_HDIST.png" width="500"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_SENDIST.png" width="500"/> </td></tr>
+ <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_HDIST.png" width="5500"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_SENDIST.png" width="500"/> </td></tr>
  </table>
 
 
@@ -32,7 +32,7 @@ For Alaska, we show that compared to the full collection of possible matchings o
 
 <table>
  <tr><td># Democratic Senate Seats across all perfect matchings</td><td># Democratic House Seats across 100k alternative plans</td></tr>
- <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Match_Hist_PermissiveUSH18A.png" width="500"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/New_Ensemble_Hist_USH18A.png" width="500"/> </td></tr>
+ <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Match_Hist_PermissiveUSH18A.png" width="550"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/New_Ensemble_Hist_USH18A.png" width="500"/> </td></tr>
  </table>
 
 
@@ -61,6 +61,12 @@ The replication code does the following:
  <li>     For these 100k steps runs it takes about 3 hours to do everything (shortens to 1/2 an hour if you only do 10k steps). </li>
    
   </ol>
+  
+  At the conclusion of the run the plots and values folders will be populated with complete sets of outputs matching the experiments described in the paper on all three Alaska dual graphs. The program will also write timing information and validity checks to the terminal. 
+  
+  <table>
+ <tr> <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Illinois_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Iowa_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Minnesota_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Montana_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Oregon_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Wyoming_planar_overlay.png" width = 200 /></td></tr>
+ </table>
   
   
  
