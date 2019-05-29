@@ -14,7 +14,7 @@ This repository contains replication code, data, and additional material to acco
 This paper analyzes a pairing rule that eight states require of their state legislative districting plans - Senate districts must be formed by joining adjacent pairs of House districts. From a mathematical perspective, this is a question of constructing perfect matchings on the <b>Dual Graph</b> of the House districts. We focus mainly on the state of Alaska where it is possible to generate the full set of matchings and evaluate the expected partisan behavior of the associated Senate plans. To get a sense of the scale of this problem, the table below shows the number of districts and perfect matchings for each of the relevant states. 
 
 
-<table>
+<table align="center">
  <tr><td>State</td><td># House Districts</td><td># Dual Graph Edges</td><td># Perfect Matchings</td></tr>
  <tr><td>Alaska</td><td>40</td><td>100</td><td>108,765</td></tr>
  <tr><td>Illinois</td><td>118</td><td>326</td><td>9,380,573,911</td></tr>
