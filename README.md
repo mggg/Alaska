@@ -37,7 +37,7 @@ Our techincal contributions include an implementation of the FKT algorithm for c
 For Alaska, we show that compared to the full collection of possible matchings of the currently enacted plan the chosen pairing exhibits an approximate advantage of 1 Republican seat. Interestingly, the House districting plan appears to have a similar magnitude advantage for the Democratic party compared to a neutral ensemble formed with a Markov chain. Histograms of these results are shown below. We also verify the usefulness of our sampling techinque by comparing it to the ground truth available in Alaska and examine the extremal plans found in the Markov chain ensemble.  Finally, we provide a cleaned dataset of merged geographic and partisan data and describe the choices that must be made to compile these resources. 
 
 <table>
- <tr><td>Democratic Senate Seats across all perfect matchings</td><td>Democratic House Seats across 100k alternative plans</td></tr>
+ <tr><td># Democratic Senate Seats across all perfect matchings</td><td># Democratic House Seats across 100k plans</td></tr>
  <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Match_Hist_PermissiveUSH18A.png" width="550"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/New_Ensemble_Hist_USH18A.png" width="500"/> </td></tr>
  </table>
 
