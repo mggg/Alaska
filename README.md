@@ -28,7 +28,6 @@ This paper analyzes a pairing rule that eight states require of their state legi
 
 
   <table>
- <tr><td></td><td></td><td></td><td>House District Dual Graphs</td><td></td><td></td><td></td></tr>
  <tr><td>Illinois</td><td>Iowa</td><td>Minnesota</td><td>Montana</td><td>Nevada</td><td>Oregon</td><td>Wyoming</td></tr>
  <tr> <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Illinois_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Iowa_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Minnesota_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Montana_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Nevada_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Oregon_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Wyoming_planar_overlay.png" width = 200 /></td></tr>
  </table>
