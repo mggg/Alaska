@@ -7,7 +7,7 @@ This repository contains replication code, data, and additional material to acco
 This paper analyzes a pairing rule that eight states require of their state legislative districting plans - Senate districts must be formed by joining adjacent pairs of House districts. 
 
 
-<table border="1" cellpadding="5" cellspacing="5">
+<table border="1" >
  <tr><td>State</td><td># Districts</td><td># Matchings</td></tr>
  <tr><td>Alaska</td><td>40</td><td>108,765</td></tr>
  <tr><td>Illinois</td><td>118</td><td>9,380,573,911</td></tr>
