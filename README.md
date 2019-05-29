@@ -44,7 +44,7 @@ For Alaska, we show that compared to the full collection of possible matchings o
 
 <H2> Replication </H2>
 
-To reproduce the experiments in the paper begin by cloning this repository or clicking the Download ZIP option. After you have extracted the files you will need to unzip AK_precicnts_NS.zip which is in the data directory. Navigate your terminal to the main directory and enter: python matching_verification. py
+To reproduce the experiments in the paper begin by cloning this repository or clicking the Download ZIP option. You will also need to install <a href="https://github.com/mggg/GerryChain">Gerrychain</a> and update NetworkX to at least version 2.3. After you have extracted the files you will need to unzip AK_precicnts_NS.zip which is in the data directory. Navigate your terminal to the main directory and enter: python matching_verification. py
 
 The replication code does the following:
 <ol>
