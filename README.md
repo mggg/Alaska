@@ -1,6 +1,6 @@
 # Alaska
 
-This repository contains replication code, data, and additional material to accompany the paper <a href="https://mggg.org/Alaska">Mathematics of Nested Districts: The Case of Alaska</a> which grew out of a project started by the 2018 <a href="http://gerrydata.org/">Voting Rights Data Institute</a> organized by <a href="mggg.org">MGGG</a>. 
+This repository contains replication code, data, and additional material to accompany the paper <a href="https://mggg.org/Alaska">Mathematics of Nested Districts: The Case of Alaska</a> which grew out of a project started by the 2018 <a href="http://gerrydata.org/">Voting Rights Data Institute</a>. 
 
 <table>
  <tr><td>Alaska State House Districts</td><td>Alaska State Senate Districts</td></tr>
