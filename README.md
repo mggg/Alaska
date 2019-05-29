@@ -25,7 +25,7 @@ For Alaska, we show that compared to the full collection of possible matchings o
 
 <table>
  <tr><td># Democratic Senate Seats across all perfect matchings</td><td># Democratic House Seats across 100k alternative plans</td></tr>
- <tr><td>![USH18A](https://github.com/gerrymandr/Alaska/blob/master/GerryChain/Match_Hist_PermissiveUSH18A.png)</td><td> ![USH18A](https://github.com/gerrymandr/Alaska/blob/master/GerryChain/New_Ensemble_Hist_USH18A.png)</td></tr>
+ <tr><td> ![USH18A](https://github.com/gerrymandr/Alaska/blob/master/GerryChain/Match_Hist_PermissiveUSH18A.png) </td><td>  ![USH18A](https://github.com/gerrymandr/Alaska/blob/master/GerryChain/New_Ensemble_Hist_USH18A.png) </td></tr>
  </table>
 
 
