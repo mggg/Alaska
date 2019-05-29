@@ -4,7 +4,7 @@ This repository contains replication code, data, and additional material to acco
 
 <table>
  <tr><td>Alaska State House Districts</td><td>Alaska State Senate Districts</td></tr>
- <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_HDIST.png" width="5500"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_SENDIST.png" width="500"/> </td></tr>
+ <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_HDIST.png" width="550"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_SENDIST.png" width="500"/> </td></tr>
  </table>
 
 
@@ -65,7 +65,7 @@ The replication code does the following:
   At the conclusion of the run the plots and values folders will be populated with complete sets of outputs matching the experiments described in the paper on all three Alaska dual graphs. The program will also write timing information and validity checks to the terminal. 
   
   <table>
- <tr> <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Illinois_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Iowa_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Minnesota_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Montana_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Oregon_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Wyoming_planar_overlay.png" width = 200 /></td></tr>
+ <tr> <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Illinois_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Iowa_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Minnesota_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Montana_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Nevada_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Oregon_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Wyoming_planar_overlay.png" width = 200 /></td></tr>
  </table>
   
   
