@@ -64,11 +64,10 @@ The replication code does the following:
   <li>    At every step, it records the partisan values as well as the number of edges in the house dual graph and FKT # of matchings.</li>
   <li>    After it finishes each run, it generates the same box plots, histograms, and text files as the matchings version as well as the plot of edges vs. matchings.</li>
  <li>     Finally, the outputs are written to file and the final time is reported.</li>
- <li>     For these 100k steps runs it takes about 3 hours to do everything (shortens to 1/2 an hour if you only do 10k steps). </li>
-   
+      
   </ol>
   
-  At the conclusion of the run the plots and values folders will be populated with complete sets of outputs matching the experiments described in the paper on all three Alaska dual graphs. The program will also write timing information and validity checks to the terminal. 
+   For these 100k steps runs it takes about 3 hours to do everything (shortens to 1/2 an hour if you only do 10k steps).  At the conclusion of the run the plots and values folders will be populated with complete sets of outputs matching the experiments described in the paper on all three Alaska dual graphs. The program will also write timing information and validity checks to the terminal. 
   
   
   
