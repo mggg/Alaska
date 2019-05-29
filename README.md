@@ -4,10 +4,10 @@ This repository contains replication code, data, and additional material to acco
 
 <H2> Pairing Districts</H2>
 
-This paper analyzes a pairing rule that eight states require of their state legislative districting plans - Senate districts must be formed by joining adjacent pairs of House districts. 
+This paper analyzes a pairing rule that eight states require of their state legislative districting plans - Senate districts must be formed by joining adjacent pairs of House districts. From a mathematical perspective, this is a question of constructing perfect matchings on the <b>Dual Graph</b> of the House districts. We focus mainly on the state of Alaska where it is possible to generate the full set of matchings and evaluate the expected partisan behavior of the associated Senate plans. To get a sense of the scale of this problem, the table below shows the number of districts and perfect matchings for each of the relevant states. 
 
 
-<table >
+<table>
  <tr><td>State</td><td># Districts</td><td># Matchings</td></tr>
  <tr><td>Alaska</td><td>40</td><td>108,765</td></tr>
  <tr><td>Illinois</td><td>118</td><td>9,380,573,911</td></tr>
@@ -18,6 +18,11 @@ This paper analyzes a pairing rule that eight states require of their state legi
  <tr><td>Oregon</td><td>60</td><td>229,968,613</td></tr>
  <tr><td>Wyoming</td><td>60</td><td>920,864</td></tr>
 </table>
+
+Our techincal contributions include an implementation of the FKT algorithm for counting the number of perfect matchings in a planar graph, a prune-and-split algorithm for generating the matchings, and a uniform sampling implementation for analyzing states like Minnesota, where generating the full set of matchings would be prohibitively expensive. The FKT function is fast enough to incorporate at every step of the Markov chain sampling procedure for generating new House plans and forms the backbone of the uniform sampling algorithm. These techniques also allow us to investigate the relationship between the number of edges in the dual graph and the number of matchings, which is of independent mathematical interest. 
+
+For Alaska, we show that compared to the full collection of possible matchings of the currently enacted plan the chosen pairing exhibits an approximate advantage of 1 Republican seat. Interestingly, the House districting plan appears to have a similar magnitude advantage for the Democratic party compared to a neutral ensemble formed with a Markov chain. We also verify the usefulness of our sampling techinque by comparing it to the ground truth available in Alaska and examine the extremal plans found in the Markov chain ensemble.  Finally, we provide a cleaned dataset of merged geographic and partisan data and describe the choices that must be made to compile these resources. 
+
 
 <H2> Replication </H2>
 
