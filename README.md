@@ -1,6 +1,6 @@
 # Alaska
 
-This repository contains replication code, data, and additional material to accompany the paper <a href="https://mggg.org/Alaska">Mathematics of Nested Districts: The Case of Alaska</a>. 
+This repository contains replication code, data, and additional material to accompany the paper <a href="https://mggg.org/Alaska">Mathematics of Nested Districts: The Case of Alaska</a> which grew out of a project started by the 2018 Voting Rights Data Institute. 
 
 <H2> Pairing Districts</H2>
 
@@ -8,15 +8,15 @@ This paper analyzes a pairing rule that eight states require of their state legi
 
 
 <table>
- <tr><td>State</td><td># Districts</td><td># Matchings</td></tr>
- <tr><td>Alaska</td><td>40</td><td>108,765</td></tr>
- <tr><td>Illinois</td><td>118</td><td>9,380,573,911</td></tr>
- <tr><td>Iowa</td><td>100</td><td>1,494,354,140,511</td></tr>
- <tr><td>Minnesota</td><td>134</td><td>6,156,723,718,225,577,984</td></tr>
- <tr><td>Montana</td><td>100</td><td>11,629,786,967,358</td></tr>
- <tr><td>Nevada</td><td>42</td><td>313,698</td></tr>
- <tr><td>Oregon</td><td>60</td><td>229,968,613</td></tr>
- <tr><td>Wyoming</td><td>60</td><td>920,864</td></tr>
+ <tr><td>State</td><td># House Districts</td><td># Dual Graph Edges</td><td># Perfect Matchings</td></tr>
+ <tr><td>Alaska</td><td>40</td><td>100</td><td>108,765</td></tr>
+ <tr><td>Illinois</td><td>118</td><td>326</td><td>9,380,573,911</td></tr>
+ <tr><td>Iowa</td><td>100</td><td>251</td><td>1,494,354,140,511</td></tr>
+ <tr><td>Minnesota</td><td>134</td><td>260</td><td>6,156,723,718,225,577,984</td></tr>
+ <tr><td>Montana</td><td>100</td><td>269</td><td>11,629,786,967,358</td></tr>
+ <tr><td>Nevada</td><td>42</td><td>111</td><td>313,698</td></tr>
+ <tr><td>Oregon</td><td>60</td><td>158</td><td>229,968,613</td></tr>
+ <tr><td>Wyoming</td><td>60</td><td>143</td><td>920,864</td></tr>
 </table>
 
 Our techincal contributions include an implementation of the FKT algorithm for counting the number of perfect matchings in a planar graph, a prune-and-split algorithm for generating the matchings, and a uniform sampling implementation for analyzing states like Minnesota, where generating the full set of matchings would be prohibitively expensive. The FKT function is fast enough to incorporate at every step of the Markov chain sampling procedure for generating new House plans and forms the backbone of the uniform sampling algorithm. These techniques also allow us to investigate the relationship between the number of edges in the dual graph and the number of matchings, which is of independent mathematical interest. 
