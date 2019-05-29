@@ -2,6 +2,22 @@
 
 This repository contains replication code, data, and additional material to accompany the paper <a href="https://mggg.org/Alaska">Mathematics of Nested Districts: The Case of Alaska</a>. 
 
+<H2> Pairing Districts</H2>
+
+This paper analyzes a pairing rule that eight states require of their state legislative districting plans - Senate districts must be formed by joining adjacent pairs of House districts. 
+
+
+<table border="1" cellpadding="5" cellspacing="5">
+ <tr><td>State</td><td># Districts</td><td># Matchings</td></tr>
+ <tr><td>Alaska</td><td>40</td><td>108,765</td></tr>
+ <tr><td>Illinois</td><td>118</td><td>9,380,573,911</td></tr>
+ <tr><td>Iowa</td><td>100</td><td>1,494,354,140,511</td></tr>
+ <tr><td>Minnesota</td><td>134</td><td>6,156,723,718,225,577,984</td></tr>
+ <tr><td>Montana</td><td>100</td><td>11,629,786,967,358</td></tr>
+ <tr><td>Nevada</td><td>42</td><td>313,698</td></tr>
+ <tr><td>Oregon</td><td>60</td><td>229,968,613</td></tr>
+ <tr><td>Wyoming</td><td>60</td><td>920,864</td></tr>
+</table>
 
 <H2> Replication </H2>
 
