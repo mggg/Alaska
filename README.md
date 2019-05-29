@@ -4,7 +4,7 @@ This repository contains replication code, data, and additional material to acco
 
 <table>
  <tr><td>Alaska State House Districts</td><td>Alaska State Senate Districts</td></tr>
- <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_HDIST.png" width="550"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_SENDIST.png" width="500"/> </td></tr>
+ <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_HDIST.png" width="600"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_SENDIST.png" width="500"/> </td></tr>
  </table>
 
 
@@ -26,6 +26,13 @@ This paper analyzes a pairing rule that eight states require of their state legi
  <tr><td>Wyoming</td><td>60</td><td>143</td><td>920,864</td></tr>
 </table>
 
+
+  <table>
+ <tr><td></td><td></td><td></td><td>House District Dual Graphs</td><td></td><td></td><td></td></tr>
+ <tr><td>Illinois</td><td>Iowa</td><td>Minnesota</td><td>Montana</td><td>Nevada</td><td>Oregon</td><td>Wyoming</td></tr>
+ <tr> <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Illinois_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Iowa_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Minnesota_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Montana_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Nevada_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Oregon_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Wyoming_planar_overlay.png" width = 200 /></td></tr>
+ </table>
+ 
 Our techincal contributions include an implementation of the FKT algorithm for counting the number of perfect matchings in a planar graph, a prune-and-split algorithm for generating the matchings, and a uniform sampling implementation for analyzing states like Minnesota, where generating the full set of matchings would be prohibitively expensive. The FKT function is fast enough to incorporate at every step of the Markov chain sampling procedure for generating new House plans and forms the backbone of the uniform sampling algorithm. These techniques also allow us to investigate the relationship between the number of edges in the dual graph and the number of matchings, which is of independent mathematical interest. 
 
 For Alaska, we show that compared to the full collection of possible matchings of the currently enacted plan the chosen pairing exhibits an approximate advantage of 1 Republican seat. Interestingly, the House districting plan appears to have a similar magnitude advantage for the Democratic party compared to a neutral ensemble formed with a Markov chain. Histograms of these results are shown below. We also verify the usefulness of our sampling techinque by comparing it to the ground truth available in Alaska and examine the extremal plans found in the Markov chain ensemble.  Finally, we provide a cleaned dataset of merged geographic and partisan data and describe the choices that must be made to compile these resources. 
@@ -64,9 +71,6 @@ The replication code does the following:
   
   At the conclusion of the run the plots and values folders will be populated with complete sets of outputs matching the experiments described in the paper on all three Alaska dual graphs. The program will also write timing information and validity checks to the terminal. 
   
-  <table>
- <tr> <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Illinois_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Iowa_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Minnesota_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Montana_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Nevada_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Oregon_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Wyoming_planar_overlay.png" width = 200 /></td></tr>
- </table>
   
   
  
