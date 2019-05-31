@@ -1,6 +1,6 @@
 # Alaska (Under Development)
 
-This repository contains replication code, data, and additional material to accompany the paper <a href="https://mggg.org/Alaska">Mathematics of Nested Districts: The Case of Alaska</a> which grew out of a project started by the 2018 <a href="http://gerrydata.org/">Voting Rights Data Institute</a>. 
+This repository contains replication code, data, and additional material to accompany the paper <a href="https://mggg.org/Alaska">Mathematics of Nested Districts: The Case of Alaska</a> which grew out of a project started at the 2018 <a href="http://gerrydata.org/">Voting Rights Data Institute</a>. 
 
 <table>
  <tr><td>Alaska State House Districts</td><td>Alaska State Senate Districts</td></tr>
@@ -96,9 +96,6 @@ The replication code does the following:
 
 <!--
 enum_matchings.py - Most recently updated enum_mathcing file that takes in multiple adjacency matrices of a potential districting plans from chain and outputs the number of matchings in each plan. Creates .pkl file. 
-
 enum_matchings_original.py - Orignal code from Samir. 
-
 04_check_matchings.py- Code for checking matchings from Samir. NOTE: Written in Python 2 
-
 -->
