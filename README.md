@@ -1,4 +1,4 @@
-# Alaska (Under Development)
+# Alaska 
 
 This repository contains replication code, data, and additional material to accompany the paper <a href="https://mggg.org/Alaska">Mathematics of Nested Districts: The Case of Alaska</a> which grew out of a project started at the 2018 <a href="http://gerrydata.org/">Voting Rights Data Institute</a>. 
 
@@ -28,8 +28,8 @@ This paper analyzes a pairing rule that eight states require of their state legi
 
 
   <table>
- <tr><td>Illinois</td><td>Iowa</td><td>Minnesota</td><td>Montana</td><td>Nevada</td><td>Oregon</td><td>Wyoming</td></tr>
- <tr> <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Illinois_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Iowa_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Minnesota_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Montana_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Nevada_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Oregon_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Wyoming_planar_overlay.png" width = 200 /></td></tr>
+ <tr><td>Alaska</td><td>Illinois</td><td>Iowa</td><td>Minnesota</td><td>Montana</td><td>Nevada</td><td>Oregon</td><td>Wyoming</td></tr>
+ <tr>  <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Alaska_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Illinois_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Iowa_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Minnesota_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Montana_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Nevada_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Oregon_planar_overlay.png" width = 200 /></td><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Wyoming_planar_overlay.png" width = 200 /></td></tr>
  </table>
  
 Our techincal contributions include an implementation of the FKT algorithm for counting the number of perfect matchings in a planar graph, a prune-and-split algorithm for generating the matchings, and a uniform sampling implementation for analyzing states like Minnesota, where generating the full set of matchings would be prohibitively expensive. The FKT function is fast enough to incorporate at every step of the Markov chain sampling procedure for generating new House plans and forms the backbone of the uniform sampling algorithm. These techniques also allow us to investigate the relationship between the number of edges in the dual graph and the number of matchings, which is of independent mathematical interest. 
@@ -40,7 +40,14 @@ For Alaska, we show that compared to the full collection of possible matchings o
  <tr><td># Democratic Senate Seats across all perfect matchings</td><td># Democratic House Seats across 100k plans</td></tr>
  <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Match_Hist_PermissiveUSH18A.png" width="550"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/New_Ensemble_Hist_USH18A.png" width="500"/> </td></tr>
  </table>
-
+ 
+ 
+ As mentioned above, we implemented a uniform sampling method for perfect matchings that allows us to analyze situations where it would be difficult to generate the entire list. In order to validate this approach we sampled 100 matchings from the 108,765 in Alaska and compare the sample distribution to the known, full distribution in the figure below. The difference between the mean of the  sample distribution and the actual distributions in approximately .03 of a seat. This suggests that this technique can be employed effectively, even in states with an enormous number of potential matchings. 
+ 
+ <table>
+ <tr><td># Democratic Senate Seats across all perfect matchings</td><td># Democratic Senate Seats across 100 Samples</td></tr>
+ <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Match_Hist_PermissiveGOV18A.png" width="550"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Match_Hist_Loose_SamplesGOV18A.png" width="500"/> </td></tr>
+ </table>
 
 <H2> Replication </H2>
 
