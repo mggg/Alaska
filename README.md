@@ -46,7 +46,7 @@ For Alaska, we show that compared to the full collection of possible matchings o
  
  <table>
  <tr><td># Democratic Senate Seats across all perfect matchings</td><td># Democratic Senate Seats across 100 Samples</td></tr>
- <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Match_Hist_PermissiveGOV18A.png" width="550"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Match_Hist_Loose_SamplesGOV18A.png" width="500"/> </td></tr>
+ <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Match_Hist_PermissiveGOV18A.png" width="550"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Match_Hist_Loose_SamplesGOV18A.png" width="500"/> </td></tr>
  </table>
 
 <H2> Replication </H2>
