@@ -54,12 +54,12 @@ For Alaska, we show that compared to the full collection of possible matchings o
  <tr><td>Permissive</td><td>Restricted</td><td>Tight</td></tr>
  <tr><td>100 edges</td><td>92 edges</td><td>89 edges</td></tr>
  <tr><td>108,765 matchings</td><td>29,289</td><td>14,446</td></tr>
- <tr><td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_loose2.png" width=400 /></td>
-  <td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_small2.png" width=400 /></td>
- <td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_smallest2.png" width=400 /></td></tr>
-   <tr><td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeP.png" width=400 /></td>
-  <td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeR.png" width=400 /></td>
- <td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeT.png" width=400 /></td></tr>
+ <tr><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_loose2.png" width=400 /></td>
+  <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_small2.png" width=400 /></td>
+ <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_smallest2.png" width=400 /></td></tr>
+   <tr><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeP.png" width=400 /></td>
+  <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeR.png" width=400 /></td>
+ <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeT.png" width=400 /></td></tr>
  </table>
  
 
