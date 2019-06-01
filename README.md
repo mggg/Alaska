@@ -57,9 +57,9 @@ For Alaska, we show that compared to the full collection of possible matchings o
  <tr><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_loose2.png" width=400 /></td>
   <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_small2.png" width=400 /></td>
  <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_smallest2.png" width=400 /></td></tr>
-   <tr><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeP.png" width=400 /></td>
-  <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeR.png" width=400 /></td>
- <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeT.png" width=400 /></td></tr>
+   <tr><td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgesP.png" width=400 /></td>
+  <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgesR.png" width=400 /></td>
+ <td><img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgesT.png" width=400 /></td></tr>
  </table>
  
 
