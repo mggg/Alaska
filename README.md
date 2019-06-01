@@ -48,6 +48,20 @@ For Alaska, we show that compared to the full collection of possible matchings o
  <tr><td># Democratic Senate Seats across all perfect matchings</td><td># Democratic Senate Seats across 100 Samples</td></tr>
  <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Match_Hist_PermissiveUSH18A.png" width="550"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Match_Hist_Loose_SamplesUSH18A.png" width="500"/> </td></tr>
  </table>
+ 
+ We also note some interesting structure in the relationship between the number of edges in the underlying dual graph of precicnts to the number of edges and matchings in the dual graph of House districts. The plots below show the House adjacencies for the three dual graphs considered in the paper and the plots of dual graph edges against total number of perfect matchings for each step in the ensemble, on each set of precinct adjacencies. The differences are a result of adjusting the connectivity of the precinct graph across the water around Anchorage. One of the key messages of our paper is that these seemingly small choices about water adjacency can have large impacts on the space of permissible plans. 
+ <table>
+ <tr><td>Permissive</td><td>Restricted</td><td>Tight</td></tr>
+ <tr><td>100 edges</td><td>92 edges</td><td>89 edges</td></tr>
+ <tr><td>108,765 matchings</td><td>29,289</td><td>14,446</td></tr>
+ <tr><td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_loose2.png" width=400 /></td>
+  <td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_small2.png" width=400 /></td>
+ <td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/AK_smallest2.png" width=400 /></td></tr>
+   <tr><td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeP.png" width=400 /></td>
+  <td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeR.png" width=400 /></td>
+ <td><img src=""https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/edgeT.png" width=400 /></td></tr>
+ </table>
+ 
 
 <H2> Replication </H2>
 
