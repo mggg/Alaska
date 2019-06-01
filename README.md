@@ -42,11 +42,11 @@ For Alaska, we show that compared to the full collection of possible matchings o
  </table>
  
  
- As mentioned above, we implemented a uniform sampling method for perfect matchings that allows us to analyze situations where it would be difficult to generate the entire list. In order to validate this approach we sampled 100 matchings from the 108,765 in Alaska and compare the sample distribution to the known, full distribution in the figure below. The difference between the mean of the  sample distribution and the actual distributions in approximately .03 of a seat. This suggests that this technique can be employed effectively, even in states with an enormous number of potential matchings. 
+ As mentioned above, we implemented a uniform sampling method for perfect matchings that allows us to analyze situations where it would be difficult to generate the entire list. In order to validate this approach we sampled 100 matchings from the 108,765 in Alaska and compare the sample distribution to the known, full distribution in the figure below. The difference between the mean of the  sample distribution and the actual distributions is less than 0.1 seats. This suggests that this technique can be employed effectively, even in states with an enormous number of potential matchings. 
  
  <table>
  <tr><td># Democratic Senate Seats across all perfect matchings</td><td># Democratic Senate Seats across 100 Samples</td></tr>
- <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Match_Hist_PermissiveGOV18A.png" width="550"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Match_Hist_Loose_SamplesGOV18A.png" width="500"/> </td></tr>
+ <tr><td> <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Match_Hist_PermissiveUSH18A.png" width="550"/></td><td>  <img src="https://raw.githubusercontent.com/gerrymandr/Alaska/master/GerryChain/Figures/Match_Hist_Loose_SamplesUSH18A.png" width="500"/> </td></tr>
  </table>
 
 <H2> Replication </H2>
